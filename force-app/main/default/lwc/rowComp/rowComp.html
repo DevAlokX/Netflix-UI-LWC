@@ -1,9 +1,12 @@
 <template>
-    <div class="headrow">
-      <div class="row">
-        <h2 class="row__title"></h2>
-        <div class="row__posters"></div>
+  <template for:each={movieCategories} for:item="categoryData">
+      <div key={categoryData.category} class="movie-row">
+          <h2 class="row-title">{categoryData.category}</h2>
+          <div class="row-posters">
+              <template for:each={categoryData.movies} for:item="movie">
+                  <img key={movie.id} class="row-poster" src={movie.posterPath} alt={movie.name} />
+              </template>
+          </div>
       </div>
-    </div>
   </template>
-  
+</template>
